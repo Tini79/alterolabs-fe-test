@@ -4,6 +4,7 @@ import { SelectFilter } from "../ui/select-filter";
 import { useState } from "react";
 import type { FormEvent } from "react";
 import type { ProductCategory } from "@/types/product";
+import { Button } from "../ui/button";
 
 export function CategoryFilter({
   categories,
@@ -27,12 +28,13 @@ export function CategoryFilter({
     <form onSubmit={handleSubmit} className="flex items-center gap-3">
       <SelectFilter categories={categories} onSelectCategory={category => onChangeCategory(category)} />
       {/* TODO: use button component */}
-      <button
+      {/* <button
         type="submit"
-        className="min-h-10 rounded-full bg-[#f1f2f5] px-4 text-sm font-medium text-[#111827] transition-colors hover:bg-[#e6e8ed] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-700"
+        className=""
       >
         Apply
-      </button>
+      </button> */}
+      <Button type="submit" name="Apply" />
     </form>
   );
 }

@@ -27,7 +27,7 @@ export function SelectFilter({
         name="category"
         value={activeCategory}
         onChange={onChangeCategory}
-        className="min-h-10 min-w-48 rounded-full border border-[#1f2937] bg-[#1f2937] px-4 text-sm font-medium text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937]"
+        className="min-h-10 min-w-48 rounded-full border border-[#1f2937] text-[#1f2937] px-4 text-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1f2937]"
       >
         <option value="">All categories</option>
         {categories.map((category) => (
