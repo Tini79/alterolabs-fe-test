@@ -54,18 +54,18 @@ only needed by server-side data-fetching code.
 
 ### 2.1 Define API contracts and TypeScript types
 
--   [ ] Review the DummyJSON product API response structures.
--   [ ] Create TypeScript types/interfaces for:
-    -   [ ] `Product`
-    -   [ ] `ProductsResponse` (`products`, `total`, `skip`, `limit`)
-    -   [ ] `ProductCategory` (use the actual category response shape)
-    -   [ ] API error representation, if needed.
--   [ ] Include fields required by the assignment:
-    -   [ ] Product ID, title, description, category, price
-    -   [ ] Thumbnail and images
-    -   [ ] Discount percentage and rating
-    -   [ ] Brand and stock for the detail page
--   [ ] Keep optional API fields optional in the types where the API may
+-   [x] Review the DummyJSON product API response structures.
+-   [x] Create TypeScript types/interfaces for:
+    -   [x] `Product`
+    -   [x] `ProductsResponse` (`products`, `total`, `skip`, `limit`)
+    -   [x] `ProductCategory` (use the actual category response shape)
+    -   [x] API error representation, if needed.
+-   [x] Include fields required by the assignment:
+    -   [x] Product ID, title, description, category, price
+    -   [x] Thumbnail and images
+    -   [x] Discount percentage and rating
+    -   [x] Brand and stock for the detail page
+-   [x] Keep optional API fields optional in the types where the API may
     omit them.
 
 ### 2.2 Create the API service layer
@@ -73,31 +73,31 @@ only needed by server-side data-fetching code.
 Create a central API module rather than calling `fetch` directly from UI
 components.
 
--   [ ] Create a shared API base URL configuration.
--   [ ] Create a reusable request helper.
--   [ ] Handle non-successful HTTP responses.
+-   [x] Create a shared API base URL configuration.
+-   [x] Create a reusable request helper.
+-   [x] Handle non-successful HTTP responses.
 -   [ ] Handle network errors and unexpected response data.
--   [ ] Keep API functions independent from presentation components.
+-   [x] Keep API functions independent from presentation components.
 -   [ ] Use native `fetch` and Next.js-supported caching/revalidation
     options deliberately; document any non-default choice.
--   [ ] Avoid adding an API route/proxy layer unless a concrete
+-   [x] Avoid adding an API route/proxy layer unless a concrete
     requirement makes it necessary.
 
 ### 2.3 Implement endpoint functions
 
--   [ ] `getProducts({ limit, skip })`
+-   [x] `getProducts({ limit, skip })`
     -   Endpoint: `GET /products`
     -   Return products and pagination metadata.
--   [ ] `getProductCategories()`
+-   [x] `getProductCategories()`
     -   Endpoint: `GET /products/categories`
     -   Return the available categories.
--   [ ] `getProductsByCategory({ category, limit, skip })`
+-   [x] `getProductsByCategory({ category, limit, skip })`
     -   Endpoint: `GET /products/category/{category}`
     -   Support pagination parameters.
--   [ ] `searchProducts({ query, limit, skip })`
+-   [x] `searchProducts({ query, limit, skip })`
     -   Endpoint: `GET /products/search?q={query}`
     -   Support pagination parameters.
--   [ ] `getProductById(id)`
+-   [x] `getProductById(id)`
     -   Endpoint: `GET /products/{id}`
     -   This function supports the recommended product-detail feature.
 
@@ -164,7 +164,7 @@ Use the URL as the source of truth for shareable listing state:
 -   [ ] Validate and normalize query parameter values (for example,
     invalid page values should fall back to page 1).
 -   [ ] Use React `useState` only for temporary client-side UI state.
--   [ ] Keep product data out of a global client store unless a real
+-   [x] Keep product data out of a global client store unless a real
     cross-page client-state requirement appears.
 
 **Why not Zustand or Redux?** The assignment does not currently require
@@ -175,16 +175,16 @@ if the scope expands and a concrete need appears.
 
 ### 3.2 Data-fetching flow
 
--   [ ] Keep data-fetching functions in the API/service layer.
+-   [x] Keep data-fetching functions in the API/service layer.
 -   [ ] Fetch listing data in the App Router page (Server Component)
     using validated search parameters.
--   [ ] Fetch categories in a server-side boundary and pass the result
+-   [x] Fetch categories in a server-side boundary and pass the result
     to the relevant UI component.
--   [ ] Pass fetched data into Client Components only where interaction
+-   [x] Pass fetched data into Client Components only where interaction
     requires it.
--   [ ] Keep Client Components focused on interaction; do not turn the
+-   [x] Keep Client Components focused on interaction; do not turn the
     entire page into a Client Component without a reason.
--   [ ] Use the `loading.tsx`, `error.tsx`, and `not-found.tsx`
+-   [x] Use the `loading.tsx`, `error.tsx`, and `not-found.tsx`
     conventions where appropriate.
 -   [ ] Prevent stale results from appearing when the URL filters
     change.
@@ -259,16 +259,16 @@ verified.
 
 Build small components before composing the page.
 
--   [ ] Button
+-   [x] Button
 -   [ ] Search input
--   [ ] Category item / category selector
--   [ ] Product card
--   [ ] Product image
+-   [x] Category item / category selector
+-   [x] Product card
+-   [x] Product image
 -   [ ] Price and discount display
 -   [ ] Rating display
 -   [ ] Pagination controls
 -   [ ] Loading skeleton
--   [ ] Error message / retry action
+-   [x] Error message / retry action
 -   [ ] Empty state
 -   [ ] Optional breadcrumb for product details
 
@@ -277,29 +277,29 @@ Build small components before composing the page.
 -   [ ] Review the provided wireframe/design reference.
 -   [ ] Define the application's spacing, typography, colors, and
     responsive breakpoints.
--   [ ] Build the root layout and global styles.
--   [ ] Build shared page container and content-width rules.
--   [ ] Build the header/navigation if required by the reference.
+-   [x] Build the root layout and global styles.
+-   [x] Build shared page container and content-width rules.
+-   [x] Build the header/navigation if required by the reference.
 -   [ ] Ensure the shared layout works on mobile, tablet, and desktop.
 
 ### 4.3 Product listing page (`/`)
 
--   [ ] Compose the page using reusable components.
--   [ ] Display products in a responsive grid or list.
+-   [x] Compose the page using reusable components.
+-   [x] Display products in a responsive grid or list.
 -   [ ] Display each product's image, title, category, price, discount
     percentage (when available), and rating (when available).
 -   [ ] Display the total number of products/results.
 -   [ ] Connect the category selector to the URL and API integration.
 -   [ ] Connect pagination to the URL and API integration.
--   [ ] Provide an option to view all products.
+-   [x] Provide an option to view all products.
 -   [ ] Show the current search/category context where appropriate.
 
 ### 4.4 Category filtering
 
--   [ ] Display categories retrieved from the API.
--   [ ] Allow selecting a category.
--   [ ] Allow returning to all products.
--   [ ] Update the listing when the category changes.
+-   [x] Display categories retrieved from the API.
+-   [x] Allow selecting a category.
+-   [x] Allow returning to all products.
+-   [x] Update the listing when the category changes.
 -   [ ] Reset pagination to page 1 when the category changes.
 -   [ ] Ensure category filtering and pagination work together.
 
@@ -315,25 +315,25 @@ Build small components before composing the page.
 
 ### 4.6 Product detail page (recommended)
 
--   [ ] Create the dynamic route `/products/[id]`.
--   [ ] Fetch the product using its ID.
+-   [x] Create the dynamic route `/products/[id]`.
+-   [x] Fetch the product using its ID.
 -   [ ] Display product images, title, description, price, rating, brand
     (when available), and stock information.
--   [ ] Add navigation from a product card to its detail page.
--   [ ] Handle invalid IDs and unavailable products gracefully.
--   [ ] Add a loading state for the detail route.
+-   [x] Add navigation from a product card to its detail page.
+-   [x] Handle invalid IDs and unavailable products gracefully.
+-   [x] Add a loading state for the detail route.
 
 ------------------------------------------------------------------------
 
 ## 5. UI States & Error Handling
 
--   [ ] **Initial state:** show the default product listing on first
+-   [x] **Initial state:** show the default product listing on first
     visit.
--   [ ] **Loading state:** show a suitable skeleton or loading indicator
+-   [x] **Loading state:** show a suitable skeleton or loading indicator
     while data is being fetched.
--   [ ] **Error state:** show a useful message when an API request
+-   [x] **Error state:** show a useful message when an API request
     fails.
--   [ ] **Retry behavior:** allow retrying a failed request where
+-   [x] **Retry behavior:** allow retrying a failed request where
     appropriate.
 -   [ ] **Empty state:** explain when no products match a category or
     search query.
@@ -343,7 +343,7 @@ Build small components before composing the page.
     newly selected filter.
 -   [ ] Avoid unnecessary duplicate API requests where reasonably
     possible.
--   [ ] Keep the interface usable when a request fails.
+-   [x] Keep the interface usable when a request fails.
 
 ------------------------------------------------------------------------
 
@@ -353,20 +353,20 @@ Build small components before composing the page.
 -   [ ] Check product grid column changes at responsive breakpoints.
 -   [ ] Ensure search, category controls, and pagination remain usable
     on small screens.
--   [ ] Use semantic HTML elements.
--   [ ] Provide meaningful image alt text.
--   [ ] Ensure interactive elements are keyboard accessible.
+-   [x] Use semantic HTML elements.
+-   [x] Provide meaningful image alt text.
+-   [x] Ensure interactive elements are keyboard accessible.
 -   [ ] Provide visible focus states.
 -   [ ] Check text contrast and readable content sizes.
--   [ ] Avoid layout shifts when product images load.
+-   [x] Avoid layout shifts when product images load.
 
 ------------------------------------------------------------------------
 
 ## 7. Testing & Quality Checks
 
--   [ ] Run TypeScript checks.
--   [ ] Run ESLint.
--   [ ] Run the production build.
+-   [x] Run TypeScript checks.
+-   [x] Run ESLint.
+-   [x] Run the production build.
 -   [ ] Test the default listing.
 -   [ ] Test category filtering and switching back to all products.
 -   [ ] Test search, empty search results, and clearing search.
@@ -416,16 +416,16 @@ Build small components before composing the page.
 
 The assignment is ready for submission when:
 
--   [ ] The application uses Next.js 16 App Router and TypeScript.
+-   [x] The application uses Next.js 16 App Router and TypeScript.
 -   [ ] Product listing, categories, category filtering, and pagination
     work.
 -   [ ] Search works if included.
 -   [ ] Product details work if included.
 -   [ ] Loading, error, and empty states are handled.
 -   [ ] The UI is responsive and follows the supplied design reference.
--   [ ] API logic is separated from UI components.
+-   [x] API logic is separated from UI components.
 -   [ ] URL state stays in sync with filters and pagination.
--   [ ] TypeScript, lint, and production build checks pass.
+-   [x] TypeScript, lint, and production build checks pass.
 -   [ ] README, GitHub repository, and live deployment are ready.
 
 ------------------------------------------------------------------------
