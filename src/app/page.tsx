@@ -1,7 +1,7 @@
 import { ProductCard } from "@/components/products/product-card";
 import { ProductCatalogSection } from "@/components/products/product-catalog-section";
 import { getProductCategories } from "@/lib/api/categories";
-import { getProducts } from "@/lib/api/products";
+import { getProducts } from "@/lib/api/products/products";
 import Image from "next/image";
 
 export default async function Home({

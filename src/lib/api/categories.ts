@@ -1,4 +1,4 @@
-import { apiRequest } from "./client";
+import { apiRequest } from "./helpers/client";
 import type { ProductCategory } from "@/types/product";
 
 type CategoryResponse = ProductCategory[] | string[];

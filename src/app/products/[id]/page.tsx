@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
-import { ApiRequestError } from "@/lib/api/client";
-import { getProductById } from "@/lib/api/products";
+import { ApiRequestError } from "@/lib/api/helpers/client";
+import { getProductById } from "@/lib/api/products/products";
 
 export default async function ProductPage({
   params,

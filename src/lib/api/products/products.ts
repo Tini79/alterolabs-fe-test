@@ -1,4 +1,4 @@
-import { apiRequest } from "./client";
+import { apiRequest } from "../helpers/client";
 import type { Product, ProductsResponse } from "@/types/product";
 
 interface ProductListParams {

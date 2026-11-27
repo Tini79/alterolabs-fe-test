@@ -2,9 +2,10 @@
 
 import { SelectFilter } from "../ui/select-filter";
 import { useState } from "react";
-import { ProductCategory } from "@/types/product";
+import type { FormEvent } from "react";
+import type { ProductCategory } from "@/types/product";
 
-export async function CategoryFilter({
+export function CategoryFilter({
   categories,
   onClickButton
 }: {
@@ -13,7 +14,8 @@ export async function CategoryFilter({
 }) {
   const [selectedCategory, setSelectedCategory] = useState<string>("")
 
-  function handleOnClick(){
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
     onClickButton(selectedCategory)
   }
 
@@ -22,11 +24,10 @@ export async function CategoryFilter({
   }
 
   return (
-    <form action="/" className="flex items-center gap-3">
+    <form onSubmit={handleSubmit} className="flex items-center gap-3">
       <SelectFilter categories={categories} onSelectCategory={category => onChangeCategory(category)} />
       {/* TODO: use button component */}
       <button
-      onClick={handleOnClick}
         type="submit"
         className="min-h-10 rounded-full bg-[#f1f2f5] px-4 text-sm font-medium text-[#111827] transition-colors hover:bg-[#e6e8ed] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-700"
       >
