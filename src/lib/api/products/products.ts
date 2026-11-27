@@ -15,16 +15,16 @@ interface SearchProductsParams extends ProductListParams {
 }
 
 export function getProducts({
-  limit,
-  skip,
+  limit = 10,
+  skip = 0,
 }: ProductListParams = {}): Promise<ProductsResponse> {
   return apiRequest<ProductsResponse>("/products", { limit, skip });
 }
 
 export function getProductsByCategory({
   category,
-  limit,
-  skip,
+  limit = 10,
+  skip = 0,
 }: CategoryProductsParams): Promise<ProductsResponse> {
   return apiRequest<ProductsResponse>(
     `/products/category/${encodeURIComponent(category)}`,
@@ -34,8 +34,8 @@ export function getProductsByCategory({
 
 export function searchProducts({
   query,
-  limit,
-  skip,
+  limit = 10,
+  skip = 0,
 }: SearchProductsParams): Promise<ProductsResponse> {
   return apiRequest<ProductsResponse>("/products/search", {
     q: query,

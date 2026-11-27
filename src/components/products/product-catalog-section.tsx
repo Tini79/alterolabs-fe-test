@@ -46,9 +46,11 @@ export function ProductCatalogSection({
     <>
       <CategoryFilter categories={categories} onClickButton={filterByCategory} />
       {filterError ? <p role="alert">{filterError}</p> : null}
-      {currentProducts.map((product) => (
-        <ProductCard key={product.id} product={product} />
-      ))}
+      <div className="grid w-full grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
+        {currentProducts.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
     </>
   )
 }
