@@ -15,7 +15,7 @@ interface SearchProductsParams extends ProductListParams {
 }
 
 export function getProducts({
-  limit = 10,
+  limit = 16,
   skip = 0,
 }: ProductListParams = {}): Promise<ProductsResponse> {
   return apiRequest<ProductsResponse>("/products", { limit, skip });
@@ -23,7 +23,7 @@ export function getProducts({
 
 export function getProductsByCategory({
   category,
-  limit = 10,
+  limit = 16,
   skip = 0,
 }: CategoryProductsParams): Promise<ProductsResponse> {
   return apiRequest<ProductsResponse>(
@@ -34,7 +34,7 @@ export function getProductsByCategory({
 
 export function searchProducts({
   query,
-  limit = 10,
+  limit = 16,
   skip = 0,
 }: SearchProductsParams): Promise<ProductsResponse> {
   return apiRequest<ProductsResponse>("/products/search", {

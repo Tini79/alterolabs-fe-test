@@ -8,10 +8,12 @@ import { Button } from "../ui/button";
 
 export function CategoryFilter({
   categories,
-  onClickButton
+  onClickButton,
+  disabled = false,
 }: {
-  categories: ProductCategory[]
-  onClickButton: (selectedValue: string)=>void
+  categories: ProductCategory[];
+  onClickButton: (selectedValue: string) => void;
+  disabled?: boolean;
 }) {
   const [selectedCategory, setSelectedCategory] = useState<string>("")
 
@@ -25,16 +27,13 @@ export function CategoryFilter({
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex items-center gap-3">
-      <SelectFilter categories={categories} onSelectCategory={category => onChangeCategory(category)} />
-      {/* TODO: use button component */}
-      {/* <button
-        type="submit"
-        className=""
-      >
-        Apply
-      </button> */}
-      <Button type="submit" name="Apply" />
+    <form onSubmit={handleSubmit} className="w-full flex gap-3 mb-4">
+      <SelectFilter
+        categories={categories}
+        onSelectCategory={onChangeCategory}
+        disabled={disabled}
+      />
+      <Button type="submit" name="Apply" disabled={disabled} />
     </form>
   );
 }

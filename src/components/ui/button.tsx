@@ -9,7 +9,7 @@ export function Button({
   return (
     <button
       type={type}
-      className={`min-h-10 rounded-full text-[#f1f2f5] px-4 text-sm font-medium bg-[#111827] transition-colors ${className}`}
+      className={`min-h-10 rounded-full bg-obsidian px-4 text-sm font-medium text-porcelain transition-colors disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
       {...props}
     >{name}</button>
   );

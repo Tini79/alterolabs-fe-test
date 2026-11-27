@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AlteroLabs Store",
+  title: "Shop Demo",
   description: "Product catalog powered by the DummyJSON API",
 };
 
@@ -26,6 +26,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col">
         <SiteHeader />
+        <div className="h-16 shrink-0" aria-hidden="true" />
         {children}
       </body>
     </html>
